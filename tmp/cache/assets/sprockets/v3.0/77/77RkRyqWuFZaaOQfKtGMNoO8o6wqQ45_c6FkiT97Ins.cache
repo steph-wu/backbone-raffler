@@ -1,0 +1,18 @@
+I"5(function() {
+  window.Raffler = {
+    Models: {},
+    Collections: {},
+    Views: {},
+    Routers: {},
+    initialize: function() {
+      new Raffler.Routers.Entries();
+      return Backbone.history.start();
+    }
+  };
+
+  $(document).ready(function() {
+    return Raffler.initialize();
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,30 @@
+I"±(function() {
+  var extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  Raffler.Views.EntriesIndex = (function(superClass) {
+    extend(EntriesIndex, superClass);
+
+    function EntriesIndex() {
+      return EntriesIndex.__super__.constructor.apply(this, arguments);
+    }
+
+    EntriesIndex.prototype.template = JST['entries/index'];
+
+    EntriesIndex.prototype.initialize = function() {
+      return this.collection.on('reset', this.render, this);
+    };
+
+    EntriesIndex.prototype.render = function() {
+      $(this.el).html(this.template({
+        entries: this.collection
+      }));
+      return this;
+    };
+
+    return EntriesIndex;
+
+  })(Backbone.View);
+
+}).call(this);
+:ET

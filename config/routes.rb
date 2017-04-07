@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope "api" do
-    resources :entries
+    resources :entries, defaults: { format: 'json' }
   end
 
   root to: "main#index"
